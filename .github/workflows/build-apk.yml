@@ -17,6 +17,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Extract updated project ZIP
+        run: |
+          mkdir -p /tmp/ups-project
+          unzip -q UPS_WiFi_Monitor_UPDATED.zip -d /tmp/ups-project
+          cp -a /tmp/ups-project/UPS_WiFi_Monitor/. .
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
